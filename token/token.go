@@ -15,8 +15,15 @@ const (
 	INT   = "INT"
 
 	// 演算子
-	ASSIGN = "="
-	PLUS   = "+"
+	ASSIGN   = "="
+	PLUS     = "+"
+	MINUS    = "-"
+	BANG     = "!"
+	ASTERISK = "*"
+	SLASH    = "/"
+
+  LT = "<"
+  GT = ">"
 
 	// デリミタ
 	COMMA     = ","
@@ -38,8 +45,8 @@ var keywords = map[string]TokenType{
 }
 
 func LookupIdent(ident string) TokenType {
-  if tok, ok := keywords[ident]; ok {
-    return tok
-  }
-  return IDENT
+	if tok, ok := keywords[ident]; ok {
+		return tok
+	}
+	return IDENT
 }

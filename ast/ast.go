@@ -208,6 +208,7 @@ func (ie *IfExpression) String() string {
 	return out.String()
 }
 
+// ブロック文
 type BlockStatement struct {
 	Token      token.Token
 	Statements []Statement
@@ -225,6 +226,7 @@ func (bs *BlockStatement) String() string {
 	return out.String()
 }
 
+// 関数リテラル
 type FunctionLiteral struct {
 	Token      token.Token // 'fn'
 	Parameters []*Identifier
@@ -250,6 +252,7 @@ func (fl *FunctionLiteral) String() string {
 	return out.String()
 }
 
+// 関数コール式
 type CallExpression struct {
 	Token     token.Token // '('
 	Function  Expression  // Identifier or FunctionLiteral
@@ -273,3 +276,13 @@ func (ce *CallExpression) String() string {
 
 	return out.String()
 }
+
+// 文字列式
+type StringLiteral struct {
+	Token token.Token
+	Value string
+}
+
+func (sl *StringLiteral) expressionNode()      {}
+func (sl *StringLiteral) TokenLiteral() string { return sl.Token.Literal }
+func (sl *StringLiteral) String() string       { return sl.Token.Literal }

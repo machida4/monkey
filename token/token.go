@@ -13,6 +13,7 @@ const (
 	// 識別子 + リテラル
 	IDENT = "IDENT" // add, foobar, x, y, ...
 	INT   = "INT"
+	STRING = "STRING"
 
 	// 演算子
 	ASSIGN   = "="
